@@ -666,71 +666,11 @@
         </div>
     </div>
 
-    <!-- Auth View (shown when not logged in) -->
-    <div id="authView" class="container mx-auto p-4 md:p-8 max-w-4xl" style="display: none;">
-        <header class="mb-8 text-center">
-            <h1 class="text-5xl font-bold mb-2 blur-text">Daily Calorie Tracker</h1>
-            <p class="text-white text-opacity-90 mt-2 text-lg blur-text">Sign in to sync your data across devices</p>
-        </header>
-        <div class="auth-container glass-card spotlight-card glow-border p-8 shadow-2xl fade-in-up">
-            <div class="text-center">
-                <h2 class="text-2xl font-semibold mb-6 text-gray-800">Welcome!</h2>
-                
-                <!-- Auth Method Tabs -->
-                <div class="flex justify-center mb-6 border-b border-gray-200">
-                    <button id="googleTabButton" class="px-6 py-3 font-medium text-indigo-600 border-b-2 border-indigo-600">Google</button>
-                    <button id="emailTabButton" class="px-6 py-3 font-medium text-gray-500 hover:text-gray-700">Email</button>
-                </div>
-
-                <!-- Google Sign-In -->
-                <div id="googleSignInSection">
-                    <p class="text-gray-600 mb-8">Sign in with Google to access your calorie tracker from any device.</p>
-                    <button id="signInButton" class="ripple bg-white border border-gray-300 text-gray-700 py-3 px-6 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 font-medium flex items-center justify-center mx-auto">
-                        <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24">
-                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                        </svg>
-                        Sign in with Google
-                    </button>
-                </div>
-
-                <!-- Email/Password Sign-In -->
-                <div id="emailSignInSection" style="display: none;">
-                    <div class="flex justify-center mb-6">
-                        <button id="signInModeButton" class="px-4 py-2 font-medium text-indigo-600 border-b-2 border-indigo-600">Sign In</button>
-                        <button id="signUpModeButton" class="px-4 py-2 font-medium text-gray-500 hover:text-gray-700">Sign Up</button>
-                    </div>
-
-                    <form id="emailAuthForm" class="max-w-sm mx-auto space-y-4">
-                        <div>
-                            <label for="emailInput" class="block text-sm font-medium text-gray-700 text-left mb-1">Email</label>
-                            <input type="email" id="emailInput" required class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="your@email.com">
-                        </div>
-                        <div>
-                            <label for="passwordInput" class="block text-sm font-medium text-gray-700 text-left mb-1">Password</label>
-                            <input type="password" id="passwordInput" required minlength="6" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="••••••••">
-                            <p class="text-xs text-gray-500 text-left mt-1">Minimum 6 characters</p>
-                        </div>
-                        <button type="submit" id="emailAuthSubmitButton" class="ripple w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 font-medium">
-                            Sign In
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main App View (shown when logged in) -->
+    <!-- Main App -->
     <div id="appView" class="container mx-auto p-4 md:p-8 max-w-4xl" style="display: none;">
         <header class="mb-8 text-center">
             <h1 class="text-5xl font-bold mb-2 blur-text">Daily Calorie Tracker</h1>
-            <p class="text-white text-opacity-90 mt-2 text-lg blur-text">Data synced across all your devices</p>
-            <div class="mt-6 flex items-center justify-center gap-4 flex-wrap">
-                <span id="userEmail" class="text-white text-opacity-80 text-sm px-4 py-2 bg-white bg-opacity-10 rounded-full backdrop-blur-sm shimmer"></span>
-                <button id="signOutButton" class="ripple text-sm bg-white bg-opacity-20 text-white py-2 px-6 rounded-full hover:bg-opacity-30 backdrop-blur-sm font-medium transition-all">Sign Out</button>
-            </div>
+            <p class="text-white text-opacity-90 mt-2 text-lg blur-text">Data stored on this device</p>
         </header>
 
         <nav class="mb-8 flex justify-center">
@@ -833,31 +773,8 @@
         </footer>
     </div>
 
-    <!-- Firebase Scripts -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, getRedirectResult, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getFirestore, doc, setDoc, getDoc, collection, query, where, getDocs, deleteDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDgf1yYmAgmLB7GSqzUYYNQBZOinfrwD0Y",
-            authDomain: "calorie-c79d0.firebaseapp.com",
-            projectId: "calorie-c79d0",
-            storageBucket: "calorie-c79d0.firebasestorage.app",
-            messagingSenderId: "916946762046",
-            appId: "1:916946762046:web:9876dac3b215680ffbd46f",
-            measurementId: "G-2ZH133D0Y7"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const provider = new GoogleAuthProvider();
-
+    <script>
         // --- App State ---
-        let currentUser = null;
         let currentView = 'dashboard';
         let dailyGoals = { calories: 2000, protein: 100, fiber: 30 };
         let foodLog = [];
@@ -869,26 +786,35 @@
         // Cache for calendar data
         let calendarDataCache = {};
 
+        // --- LocalStorage Helpers ---
+        function getLocalGoals() {
+            try {
+                const stored = localStorage.getItem('calorie_tracker_goals');
+                return stored ? JSON.parse(stored) : { calories: 2000, protein: 100, fiber: 30 };
+            } catch (e) {
+                return { calories: 2000, protein: 100, fiber: 30 };
+            }
+        }
+
+        function saveLocalGoals(goals) {
+            localStorage.setItem('calorie_tracker_goals', JSON.stringify(goals));
+        }
+
+        function getLocalFoodLogs() {
+            try {
+                const stored = localStorage.getItem('calorie_tracker_foodlogs');
+                return stored ? JSON.parse(stored) : {};
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function saveLocalFoodLogs(logs) {
+            localStorage.setItem('calorie_tracker_foodlogs', JSON.stringify(logs));
+        }
+
         // --- UI Elements ---
-        const authView = document.getElementById('authView');
         const appView = document.getElementById('appView');
-        const signInButton = document.getElementById('signInButton');
-        const signOutButton = document.getElementById('signOutButton');
-        const userEmail = document.getElementById('userEmail');
-
-        // Email auth elements
-        const googleTabButton = document.getElementById('googleTabButton');
-        const emailTabButton = document.getElementById('emailTabButton');
-        const googleSignInSection = document.getElementById('googleSignInSection');
-        const emailSignInSection = document.getElementById('emailSignInSection');
-        const signInModeButton = document.getElementById('signInModeButton');
-        const signUpModeButton = document.getElementById('signUpModeButton');
-        const emailAuthForm = document.getElementById('emailAuthForm');
-        const emailInput = document.getElementById('emailInput');
-        const passwordInput = document.getElementById('passwordInput');
-        const emailAuthSubmitButton = document.getElementById('emailAuthSubmitButton');
-        let isSignUpMode = false;
-
         const dashboardView = document.getElementById('dashboardView');
         const calendarView = document.getElementById('calendarView');
         const settingsView = document.getElementById('settingsView');
@@ -946,230 +872,70 @@
         function hideMessage() { messageModal.classList.add('hidden'); }
         function formatDateToYyyyMmDd(dateObj) { return dateObj.toISOString().split('T')[0]; }
 
-        // --- Authentication Functions ---
-        async function handleSignIn() {
-            try {
-                showLoading(true);
-                // Try popup first (works better on desktop)
-                try {
-                    await signInWithPopup(auth, provider);
-                    showLoading(false);
-                } catch (popupError) {
-                    // If popup fails (mobile/Safari), use redirect
-                    console.log("Popup failed, trying redirect:", popupError);
-                    if (popupError.code === 'auth/popup-blocked' || 
-                        popupError.code === 'auth/cancelled-popup-request' ||
-                        /safari|iphone|ipad/i.test(navigator.userAgent)) {
-                        const { signInWithRedirect } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');
-                        await signInWithRedirect(auth, provider);
-                    } else {
-                        throw popupError;
-                    }
-                }
-            } catch (error) {
-                console.error("Sign in error:", error);
-                showLoading(false);
-                if (error.code !== 'auth/popup-closed-by-user' && error.code !== 'auth/cancelled-popup-request') {
-                    showMessage("Failed to sign in. Please try again.");
-                }
-            }
-        }
-
-        async function handleEmailAuth(e) {
-            e.preventDefault();
-            const email = emailInput.value.trim();
-            const password = passwordInput.value;
-
-            if (!email || !password) {
-                showMessage("Please enter both email and password.");
-                return;
-            }
-
-            if (password.length < 6) {
-                showMessage("Password must be at least 6 characters.");
-                return;
-            }
-
-            try {
-                showLoading(true);
-                if (isSignUpMode) {
-                    // Sign up
-                    await createUserWithEmailAndPassword(auth, email, password);
-                    showMessage("Account created successfully!");
-                } else {
-                    // Sign in
-                    await signInWithEmailAndPassword(auth, email, password);
-                }
-                emailAuthForm.reset();
-            } catch (error) {
-                console.error("Email auth error:", error);
-                let errorMessage = "Authentication failed. Please try again.";
-                
-                if (error.code === 'auth/email-already-in-use') {
-                    errorMessage = "This email is already registered. Please sign in instead.";
-                } else if (error.code === 'auth/invalid-email') {
-                    errorMessage = "Invalid email address.";
-                } else if (error.code === 'auth/weak-password') {
-                    errorMessage = "Password is too weak. Use at least 6 characters.";
-                } else if (error.code === 'auth/user-not-found') {
-                    errorMessage = "No account found with this email. Please sign up first.";
-                } else if (error.code === 'auth/wrong-password') {
-                    errorMessage = "Incorrect password. Please try again.";
-                } else if (error.code === 'auth/invalid-credential') {
-                    errorMessage = "Invalid email or password. Please check and try again.";
-                }
-                
-                showMessage(errorMessage);
-            } finally {
-                showLoading(false);
-            }
-        }
-
-        async function handleSignOut() {
-            try {
-                showLoading(true);
-                await signOut(auth);
-                showMessage("Signed out successfully");
-            } catch (error) {
-                console.error("Sign out error:", error);
-                showMessage("Failed to sign out. Please try again.");
-            } finally {
-                showLoading(false);
-            }
-        }
-
-        // --- Firestore Functions ---
-        async function loadGoalsFromFirestore() {
-            if (!currentUser) return;
-            showLoading(true);
-            try {
-                const goalsDoc = await getDoc(doc(db, 'users', currentUser.uid, 'settings', 'goals'));
-                if (goalsDoc.exists()) {
-                    dailyGoals = goalsDoc.data();
-                } else {
-                    // Set default goals
-                    await setDoc(doc(db, 'users', currentUser.uid, 'settings', 'goals'), dailyGoals);
-                }
-            } catch (error) {
-                console.error("Error loading goals:", error);
-                showMessage("Could not load goals.");
-            }
+        // --- Data Functions ---
+        function loadGoals() {
+            dailyGoals = getLocalGoals();
             updateSettingsForm();
-            showLoading(false);
         }
 
-        async function saveGoalsToFirestore() {
-            if (!currentUser) return;
-            showLoading(true);
-            try {
-                await setDoc(doc(db, 'users', currentUser.uid, 'settings', 'goals'), dailyGoals);
-                showMessage("Goals updated!");
-            } catch (error) {
-                console.error("Error saving goals:", error);
-                showMessage(`Error saving goals: ${error.message}`);
-            }
+        function saveGoals() {
+            saveLocalGoals(dailyGoals);
+            showMessage("Goals updated!");
             updateDashboardSummary();
             if (currentView === 'calendar') {
-                calendarDataCache = {}; // Clear cache
+                calendarDataCache = {};
                 renderCalendar();
             }
-            showLoading(false);
         }
 
-        async function loadFoodLogForDateFromFirestore(dateString) {
-            if (!currentUser) return;
-            showLoading(true);
-            try {
-                const q = query(
-                    collection(db, 'users', currentUser.uid, 'foodLogs'),
-                    where('date', '==', dateString)
-                );
-                const querySnapshot = await getDocs(q);
-                foodLog = [];
-                querySnapshot.forEach((doc) => {
-                    foodLog.push({ id: doc.id, ...doc.data() });
-                });
-            } catch (error) {
-                console.error(`Error loading food log for ${dateString}:`, error);
-                foodLog = [];
-            }
+        function loadFoodLogForDate(dateString) {
+            const logs = getLocalFoodLogs();
+            foodLog = (logs[dateString] || []).slice();
             renderFoodLog();
             updateDashboardSummary();
-            showLoading(false);
         }
 
-        async function getDailyTotalsForDate(dateString) {
-            if (!currentUser) return { calories: 0, protein: 0, fiber: 0 };
-            
-            // Check cache first
+        function getDailyTotalsForDate(dateString) {
             if (calendarDataCache[dateString]) {
                 return calendarDataCache[dateString];
             }
-
-            try {
-                const q = query(
-                    collection(db, 'users', currentUser.uid, 'foodLogs'),
-                    where('date', '==', dateString)
-                );
-                const querySnapshot = await getDocs(q);
-                let totals = { calories: 0, protein: 0, fiber: 0 };
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    totals.calories += Number(data.calories) || 0;
-                    totals.protein += Number(data.protein) || 0;
-                    totals.fiber += Number(data.fiber) || 0;
-                });
-                
-                // Cache the result
-                calendarDataCache[dateString] = totals;
-                return totals;
-            } catch (error) {
-                console.error(`Error loading totals for ${dateString}:`, error);
-                return { calories: 0, protein: 0, fiber: 0 };
-            }
+            const logs = getLocalFoodLogs();
+            const dayLogs = logs[dateString] || [];
+            const totals = { calories: 0, protein: 0, fiber: 0 };
+            dayLogs.forEach(item => {
+                totals.calories += Number(item.calories) || 0;
+                totals.protein += Number(item.protein) || 0;
+                totals.fiber += Number(item.fiber) || 0;
+            });
+            calendarDataCache[dateString] = totals;
+            return totals;
         }
 
-        async function addFoodItemToFirestore(foodItem) {
-            if (!currentUser) return;
-            showLoading(true);
-            try {
-                const docRef = doc(collection(db, 'users', currentUser.uid, 'foodLogs'));
-                const newItem = {
-                    ...foodItem,
-                    date: currentDate,
-                    timestamp: new Date().toISOString()
-                };
-                await setDoc(docRef, newItem);
-                
-                // Clear cache for this date
-                delete calendarDataCache[currentDate];
-                
-                await loadFoodLogForDateFromFirestore(currentDate);
-                if (currentView === 'calendar') renderCalendar();
-            } catch (error) {
-                console.error("Error adding food item:", error);
-                showMessage(`Error adding food item: ${error.message}`);
-            }
-            showLoading(false);
+        function addFoodItem(foodItem) {
+            const logs = getLocalFoodLogs();
+            if (!logs[currentDate]) logs[currentDate] = [];
+            const newItem = {
+                ...foodItem,
+                id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
+                date: currentDate,
+                timestamp: new Date().toISOString()
+            };
+            logs[currentDate].push(newItem);
+            saveLocalFoodLogs(logs);
+            delete calendarDataCache[currentDate];
+            loadFoodLogForDate(currentDate);
+            if (currentView === 'calendar') renderCalendar();
         }
 
-        async function deleteFoodItemFromFirestore(foodItemId) {
-            if (!currentUser) return;
-            showLoading(true);
-            try {
-                await deleteDoc(doc(db, 'users', currentUser.uid, 'foodLogs', foodItemId));
-                
-                // Clear cache for this date
-                delete calendarDataCache[currentDate];
-                
-                await loadFoodLogForDateFromFirestore(currentDate);
-                if (currentView === 'calendar') renderCalendar();
-                console.log("Food item deleted:", foodItemId);
-            } catch (error) {
-                console.error("Error deleting food item:", error);
-                showMessage(`Error deleting food item: ${error.message}`);
+        function deleteFoodItem(foodItemId) {
+            const logs = getLocalFoodLogs();
+            if (logs[currentDate]) {
+                logs[currentDate] = logs[currentDate].filter(item => item.id !== foodItemId);
+                saveLocalFoodLogs(logs);
             }
-            showLoading(false);
+            delete calendarDataCache[currentDate];
+            loadFoodLogForDate(currentDate);
+            if (currentView === 'calendar') renderCalendar();
         }
 
         // --- Calendar Functions ---
@@ -1191,8 +957,7 @@
             calendarHeaderDisplay.textContent = headerText;
         }
 
-        async function renderCalendar() {
-            showLoading(true);
+        function renderCalendar() {
             calendarGrid.innerHTML = '';
             const existingHeaders = calendarGridContainer.querySelector('.calendar-day-headers-row');
             if (existingHeaders) existingHeaders.remove();
@@ -1212,15 +977,14 @@
                     headerRow.appendChild(th);
                 });
                 calendarGridContainer.insertBefore(headerRow, calendarGrid);
-                await renderMonthGrid();
+                renderMonthGrid();
             } else {
                 calendarGrid.classList.add('calendar-week-view');
-                await renderWeekGrid();
+                renderWeekGrid();
             }
-            showLoading(false);
         }
 
-        async function renderMonthGrid() {
+        function renderMonthGrid() {
             const year = calendarDisplayDate.getFullYear();
             const month = calendarDisplayDate.getMonth();
 
@@ -1228,22 +992,6 @@
             const lastDayOfMonth = new Date(year, month + 1, 0);
             const daysInMonth = lastDayOfMonth.getDate();
             let startingDayOfWeek = firstDayOfMonth.getDay();
-
-            // Collect all dates we need to fetch
-            const datesToFetch = [];
-            for (let day = 1; day <= daysInMonth; day++) {
-                const cellDate = new Date(year, month, day);
-                const cellDateString = formatDateToYyyyMmDd(cellDate);
-                datesToFetch.push(cellDateString);
-            }
-
-            // Fetch all data in parallel
-            const dataPromises = datesToFetch.map(date => getDailyTotalsForDate(date));
-            const allData = await Promise.all(dataPromises);
-            const dataMap = {};
-            datesToFetch.forEach((date, index) => {
-                dataMap[date] = allData[index];
-            });
 
             // Add empty cells before first day
             for (let i = 0; i < startingDayOfWeek; i++) {
@@ -1267,7 +1015,7 @@
                 dayNumber.className = 'calendar-day-number';
                 cell.appendChild(dayNumber);
 
-                const dailyTotals = dataMap[cellDateString];
+                const dailyTotals = getDailyTotalsForDate(cellDateString);
 
                 const calDisplay = document.createElement('span');
                 calDisplay.innerHTML = `<span class="cal-data-value">${dailyTotals.calories}</span> <span class="hidden sm:inline">kcal</span>`;
@@ -1286,7 +1034,7 @@
 
                 cell.onclick = () => {
                     currentDate = cellDateString;
-                    loadFoodLogForDateFromFirestore(currentDate);
+                    loadFoodLogForDate(currentDate);
                     updateDashboardDateDisplays();
                     switchView('dashboard');
                 };
@@ -1303,26 +1051,13 @@
             }
         }
 
-        async function renderWeekGrid() {
+        function renderWeekGrid() {
             const startOfWeek = new Date(calendarDisplayDate);
-            
-            // Collect dates for the week
-            const datesToFetch = [];
+
             for (let i = 0; i < 7; i++) {
                 const dayInWeek = new Date(startOfWeek);
                 dayInWeek.setDate(startOfWeek.getDate() + i);
-                datesToFetch.push(formatDateToYyyyMmDd(dayInWeek));
-            }
-
-            // Fetch all data in parallel
-            const dataPromises = datesToFetch.map(date => getDailyTotalsForDate(date));
-            const allData = await Promise.all(dataPromises);
-
-            // Render cells
-            for (let i = 0; i < 7; i++) {
-                const dayInWeek = new Date(startOfWeek);
-                dayInWeek.setDate(startOfWeek.getDate() + i);
-                const cellDateString = datesToFetch[i];
+                const cellDateString = formatDateToYyyyMmDd(dayInWeek);
 
                 const cell = document.createElement('div');
                 cell.className = 'calendar-day-cell';
@@ -1339,7 +1074,7 @@
 
                 const statsDiv = document.createElement('div');
                 statsDiv.className = 'week-view-stats';
-                const dailyTotals = allData[i];
+                const dailyTotals = getDailyTotalsForDate(cellDateString);
 
                 statsDiv.innerHTML = `
                     <span class="cal-data cal-data-cal"><span class="cal-data-value">${dailyTotals.calories}</span> kcal</span>
@@ -1351,7 +1086,7 @@
 
                 cell.onclick = () => {
                     currentDate = cellDateString;
-                    loadFoodLogForDateFromFirestore(currentDate);
+                    loadFoodLogForDate(currentDate);
                     updateDashboardDateDisplays();
                     switchView('dashboard');
                 };
@@ -1403,7 +1138,7 @@
                 updateSettingsForm();
             } else if (view === 'dashboard') {
                 updateDashboardDateDisplays();
-                loadFoodLogForDateFromFirestore(currentDate);
+                loadFoodLogForDate(currentDate);
             } else if (view === 'calendar') {
                 const [year, monthStr, dayStr] = currentDate.split('-');
                 calendarDisplayDate = new Date(Number(year), Number(monthStr) - 1, Number(dayStr));
@@ -1440,11 +1175,10 @@
                 const deleteButton = document.createElement('button');
                 deleteButton.textContent = 'Delete';
                 deleteButton.className = 'ripple px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-xs';
-                deleteButton.onclick = () => deleteFoodItemFromFirestore(item.id);
+                deleteButton.onclick = () => deleteFoodItem(item.id);
                 const actionsCell = row.insertCell();
                 actionsCell.appendChild(deleteButton);
             });
-            // Animate food log items
             setTimeout(() => animateFoodLogItems(), 10);
         }
 
@@ -1480,50 +1214,6 @@
         }
 
         // --- Event Handlers ---
-        signInButton.addEventListener('click', handleSignIn);
-        signOutButton.addEventListener('click', handleSignOut);
-
-        // Tab switching
-        googleTabButton.addEventListener('click', () => {
-            googleTabButton.classList.add('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            googleTabButton.classList.remove('text-gray-500');
-            emailTabButton.classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            emailTabButton.classList.add('text-gray-500');
-            googleSignInSection.style.display = 'block';
-            emailSignInSection.style.display = 'none';
-        });
-
-        emailTabButton.addEventListener('click', () => {
-            emailTabButton.classList.add('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            emailTabButton.classList.remove('text-gray-500');
-            googleTabButton.classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            googleTabButton.classList.add('text-gray-500');
-            googleSignInSection.style.display = 'none';
-            emailSignInSection.style.display = 'block';
-        });
-
-        // Sign in/up mode switching
-        signInModeButton.addEventListener('click', () => {
-            isSignUpMode = false;
-            signInModeButton.classList.add('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            signInModeButton.classList.remove('text-gray-500');
-            signUpModeButton.classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            signUpModeButton.classList.add('text-gray-500');
-            emailAuthSubmitButton.textContent = 'Sign In';
-        });
-
-        signUpModeButton.addEventListener('click', () => {
-            isSignUpMode = true;
-            signUpModeButton.classList.add('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            signUpModeButton.classList.remove('text-gray-500');
-            signInModeButton.classList.remove('text-indigo-600', 'border-b-2', 'border-indigo-600');
-            signInModeButton.classList.add('text-gray-500');
-            emailAuthSubmitButton.textContent = 'Sign Up';
-        });
-
-        // Email auth form
-        emailAuthForm.addEventListener('submit', handleEmailAuth);
-
         foodForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const newFood = {
@@ -1536,7 +1226,7 @@
                 showMessage("Please enter a food name.");
                 return;
             }
-            addFoodItemToFirestore(newFood);
+            addFoodItem(newFood);
             foodForm.reset();
         });
 
@@ -1545,7 +1235,7 @@
             dailyGoals.calories = parseInt(calorieGoalInput.value) || 0;
             dailyGoals.protein = parseInt(proteinGoalInput.value) || 0;
             dailyGoals.fiber = parseInt(fiberGoalInput.value) || 0;
-            saveGoalsToFirestore();
+            saveGoals();
         });
 
         viewDashboardButton.addEventListener('click', () => switchView('dashboard'));
@@ -1584,7 +1274,7 @@
             } else {
                 calendarDisplayDate.setDate(calendarDisplayDate.getDate() - 7);
             }
-            calendarDataCache = {}; // Clear cache when navigating
+            calendarDataCache = {};
             renderCalendar();
         });
 
@@ -1594,7 +1284,7 @@
             } else {
                 calendarDisplayDate.setDate(calendarDisplayDate.getDate() + 7);
             }
-            calendarDataCache = {}; // Clear cache when navigating
+            calendarDataCache = {};
             renderCalendar();
         });
 
@@ -1604,13 +1294,11 @@
                 const dayOfWeek = calendarDisplayDate.getDay();
                 calendarDisplayDate.setDate(calendarDisplayDate.getDate() - dayOfWeek);
             }
-            calendarDataCache = {}; // Clear cache when navigating
+            calendarDataCache = {};
             renderCalendar();
         });
 
-        // --- React-Bits Inspired Animations ---
-
-        // Initialize animated beams
+        // --- Animations ---
         function initAnimatedBeams() {
             const beamsContainer = document.getElementById('animatedBeams');
             const numberOfBeams = 8;
@@ -1625,7 +1313,6 @@
             }
         }
 
-        // Initialize floating particles
         function initFloatingParticles() {
             const particlesContainer = document.getElementById('particlesContainer');
             const numberOfParticles = 30;
@@ -1644,7 +1331,6 @@
             }
         }
 
-        // Ripple effect on button clicks
         function createRipple(event) {
             const button = event.currentTarget;
             if (!button.classList.contains('ripple')) return;
@@ -1662,16 +1348,11 @@
             ripple.style.top = `${y}px`;
 
             button.appendChild(ripple);
-
-            ripple.addEventListener('animationend', () => {
-                ripple.remove();
-            });
+            ripple.addEventListener('animationend', () => ripple.remove());
         }
 
-        // Add ripple effect to all buttons with ripple class
         document.addEventListener('click', createRipple);
 
-        // Tilt card effect
         function initTiltCards() {
             const tiltCards = document.querySelectorAll('.tilt-card');
 
@@ -1698,7 +1379,6 @@
             });
         }
 
-        // Initialize stagger animations for food log items
         function animateFoodLogItems() {
             const rows = document.querySelectorAll('#foodLogTableBody tr');
             rows.forEach((row, index) => {
@@ -1708,56 +1388,18 @@
             });
         }
 
-        // Refresh animations when needed
-        function refreshAnimations() {
-            initTiltCards();
-            animateFoodLogItems();
-        }
-
-        // Initialize all animations on page load
+        // --- Initialize App ---
         window.addEventListener('DOMContentLoaded', () => {
             initAnimatedBeams();
             initFloatingParticles();
             initTiltCards();
-        });
 
-        // --- Auth State Observer ---
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                currentUser = user;
-                userEmail.textContent = user.email;
-                authView.style.display = 'none';
-                appView.style.display = 'block';
-                
-                // Load user data
-                await loadGoalsFromFirestore();
-                await loadFoodLogForDateFromFirestore(currentDate);
-                updateDashboardDateDisplays();
-                switchView('dashboard');
-            } else {
-                currentUser = null;
-                authView.style.display = 'block';
-                appView.style.display = 'none';
-            }
-            // Always hide loading when auth state changes
-            showLoading(false);
+            appView.style.display = 'block';
+            loadGoals();
+            loadFoodLogForDate(currentDate);
+            updateDashboardDateDisplays();
+            switchView('dashboard');
         });
-
-        // Handle redirect result (for mobile Safari)
-        getRedirectResult(auth)
-            .then((result) => {
-                if (result && result.user) {
-                    console.log("Successfully signed in via redirect:", result.user.email);
-                }
-                showLoading(false);
-            })
-            .catch((error) => {
-                console.error("Redirect result error:", error);
-                showLoading(false);
-                if (error.code && error.code !== 'auth/popup-closed-by-user') {
-                    showMessage("Sign in failed. Please try again.");
-                }
-            });
     </script>
 </body>
 </html>
